@@ -1,0 +1,45 @@
+.cajanav{
+    background-color: rgb(53, 58, 64);
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.imagenprincipal{
+    background-image: url(../imagenes/ba1.jpg);
+    height: 80vh;
+    background-position: center;
+    background-size: cover;
+    background-color: rgb(53, 58, 64);
+    background-blend-mode: soft-light;
+    align-items: center;
+    }
+
+#cajamain{
+    position: absolute;
+    right: 80px;
+    top: 400px;
+    width: 50%;
+    color: white;
+    font-weight: 300;
+    text-align: right;
+}
+     
+#titulosh6{
+    font-weight: 100;
+    text-align: center;
+}
+
+#honolulu{
+    background-color: rgb(53, 58, 64);
+}
+
+footer{
+background-color: rgb(28, 57, 71);
+color: white;
+height: 100px;
+padding-top: 25px;
+}
+#botonverde{
+    background-color: rgb(150, 201, 62);
+    color: white;
+}

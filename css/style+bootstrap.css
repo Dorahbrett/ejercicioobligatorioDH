@@ -43,3 +43,17 @@ padding-top: 25px;
     background-color: rgb(150, 201, 62);
     color: white;
 }
+#botontotal{
+    background-color: rgb(204,229,255);
+    color: #376c9e;
+    border-radius: 30 px;
+    padding: 10px;
+}
+#borrar{
+    background-color: rgb(150, 201, 62);
+    color: white;
+}
+#resumen{
+    background-color: rgb(150, 201, 62);
+    color: white;
+}

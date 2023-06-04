@@ -90,36 +90,38 @@
     <h1 style="text-align:center">VALOR DE TICKET $200</h1>
 
 
-    <form>
+    <form name = "formulario">
+
         <div class="row g-2 justify-content-center">
 
             <div class="col-3">
-                <input id = "nombre" type="text" class="form-control" placeholder="Nombre" name="Nombre">
+                <input id = "nombre" type="text" class="form-control" placeholder="Nombre" name="nombre">
             </div>
 
             <div class="col-3">
-                <input id = "apellido" type="text" class="form-control" placeholder="Apellido" name="Apellido">
+                <input id = "apellido" type="text" class="form-control" placeholder="Apellido" name="apellido">
             </div>
 
         <div class="row g-2 justify-content-center">
 
             <div class="col-6">
-                <input id = "email" type="text" autocomplete="correo electronico" class="form-control" placeholder="Correo Electronico" name="Correo Electronico">
+                <input id = "email" type="text" class="form-control" placeholder="Correo Electronico" name="email">
             </div>
 
             <div class="row g-2 justify-content-center">
 
                 <div class=" d-grid col-3">
-                    <label class="form-label" >Cantidad:<input type="text" class="form-control" id = "cantidad" placeholder="Cantidad" name="Cantidad"></label>
+                    <label class="form-label" >Cantidad:<input type="text" class="form-control" id = "cantidad" placeholder="Cantidad" name="cantidad"></label>
                     
                 </div>
 
                 <div class=" d-grid col-3">
                     <label class="form-label">Categoria:<select  id= "categoria" class="form-select">
-                        <option>Estudiante</option>
-                        <option>Trainee</option>
-                        <option>Junior</option>
-                    </select></label>
+                        <option value="0.8">Estudiante</option>
+                        <option value="0.5">Trainee</option>
+                        <option value="0.15">Junior</option>
+                        </select>
+                    </label>
                     
                 </div>
 
@@ -142,7 +144,8 @@
                 </div>  
                  
                 <div class="d-grid col-3">
-                    <button class="btn"  id="resumen" onclick = "btnResumen" type="button">Resumen</button>
+                    <button class="btn"  id="resumen"  type="button">Resumen</button>
+                
                 </div>
 
             </div>
@@ -188,24 +191,55 @@
    
     <script>
 
+    function validarformulario(event,form) {
+
+        
+                   
+            if (formulario.nombre.value.trim().length == 0) {
+                alert("Debe ingresar un nombre!");
+                return false;
+            } 
+
+            if (formulario.apellido.value.trim().length == 0) {
+                alert("Debe ingresar un apellido!");
+                return false;
+            }
+        
+
+            if (formulario.email.value.trim().length == 0) {
+                alert("Debe ingresar un correo electronico")
+                return false;
+            }
+
+            if (formulario.cantidad.value == 0) {
+                alert ("Indique la cantidad de tickets a comprar");
+                return false;
+            }
+        
+            if (formulario.categoria.value == 0) {
+                alert ("Seleccione una categoria");
+                return false;
+            }
+            
+            return true;
+        }
+        
+
         const btnResumen = document.getElementById("resumen");
+
         btnResumen.addEventListener("click", function mostrarTotal() {
 
+            if (!validarformulario()) {
+                return;
+            }
+            
             var cantidad = document.getElementById("cantidad").value;
 
             var categoria = document.getElementById("categoria").value;
 
-            if (categoria == "Estudiante") {
-                descuento = 0.2;
-            } else  if (categoria == "Trainee") {
-                descuento = 0.5;
-            } else  if (categoria == "Junior") {
-                descuento = 0.015;
-            }
-            
             let PRECIO = 200;
 
-            let total = parseInt(cantidad * PRECIO * descuento);
+            let total = parseInt(cantidad * PRECIO * categoria);
             document.getElementById("total").innerText = total;
             console.log(total);
             
